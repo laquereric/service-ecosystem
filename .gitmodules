@@ -1,15 +1,3 @@
-[submodule "container/rayswarm-mermaid"]
-	path = container/rayswarm-mermaid
-	url = https://github.com/laquereric/rayswarm-mermaid.git
-[submodule "container/rayswarm-puml"]
-	path = container/rayswarm-puml
-	url = https://github.com/laquereric/puml-work.git
-[submodule "container/rayswarm-switch"]
-	path = container/rayswarm-switch
-	url = https://github.com/laquereric/rayswarm-switch.git
-[submodule "engine/rayswarm-core"]
-	path = engine/rayswarm-core
-	url = https://github.com/laquereric/rayswarm-core.git
 [submodule "library/service-3d"]
 	path = library/service-3d
 	url = https://github.com/laquereric/service-3d.git
@@ -25,3 +13,15 @@
 [submodule "service-ecosystem-manager"]
 	path = service-ecosystem-manager
 	url = https://github.com/laquereric/service-ecosystem-manager.git
+[submodule "container/service-mermaid"]
+	path = container/service-mermaid
+	url = https://github.com/laquereric/service-mermaid.git
+[submodule "container/service-puml"]
+	path = container/service-puml
+	url = https://github.com/laquereric/service-puml.git
+[submodule "container/service-switch"]
+	path = container/service-switch
+	url = https://github.com/laquereric/service-switch.git
+[submodule "engine/service-core"]
+	path = engine/service-core
+	url = https://github.com/laquereric/service-core.git
