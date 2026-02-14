@@ -28,3 +28,30 @@
 [submodule "container/service-3d"]
 	path = container/service-3d
 	url = https://github.com/laquereric/service-3d.git
+[submodule "container/service-id"]
+	path = container/service-id
+	url = https://github.com/laquereric/service-id.git
+[submodule "container/service-rubygems"]
+	path = container/service-rubygems
+	url = https://github.com/laquereric/service-rubygems.git
+[submodule "engine/rayswarm-plugin-wasm3"]
+	path = engine/rayswarm-plugin-wasm3
+	url = https://github.com/laquereric/rayswarm-plugin-wasm3.git
+[submodule "engine/service-portfolio"]
+	path = engine/service-portfolio
+	url = https://github.com/laquereric/service-portfolio.git
+[submodule "library/service-all-containers"]
+	path = library/service-all-containers
+	url = https://github.com/laquereric/service-all-containers.git
+[submodule "library/service-all-ecosystem-managers"]
+	path = library/service-all-ecosystem-managers
+	url = https://github.com/laquereric/service-all-ecosystem-managers.git
+[submodule "library/service-biological-it"]
+	path = library/service-biological-it
+	url = https://github.com/laquereric/service-biological-it.git
+[submodule "library/service-protege-launch"]
+	path = library/service-protege-launch
+	url = https://github.com/laquereric/service-protege-launch.git
+[submodule "library/service-protege"]
+	path = library/service-protege
+	url = https://github.com/laquereric/service-protege.git
