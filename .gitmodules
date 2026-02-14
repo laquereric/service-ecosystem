@@ -58,3 +58,9 @@
 [submodule "container/service-github"]
 	path = container/service-github
 	url = https://github.com/laquereric/service-github.git
+[submodule "library/service-all-engines"]
+	path = library/service-all-engines
+	url = https://github.com/laquereric/service-all-engines.git
+[submodule "library/service-all-libraries"]
+	path = library/service-all-libraries
+	url = https://github.com/laquereric/service-all-libraries.git
