@@ -55,3 +55,6 @@
 [submodule "library/service-protege"]
 	path = library/service-protege
 	url = https://github.com/laquereric/service-protege.git
+[submodule "container/service-github"]
+	path = container/service-github
+	url = https://github.com/laquereric/service-github.git
