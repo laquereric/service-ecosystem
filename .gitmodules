@@ -1,12 +1,6 @@
-[submodule "library/service-3d"]
-	path = library/service-3d
-	url = https://github.com/laquereric/service-3d.git
 [submodule "library/service-exception"]
 	path = library/service-exception
 	url = https://github.com/laquereric/service-exception.git
-[submodule "library/service-portfolio"]
-	path = library/service-portfolio
-	url = https://github.com/laquereric/service-portfolio.git
 [submodule "library/service-table"]
 	path = library/service-table
 	url = https://github.com/laquereric/service-table.git
