@@ -25,3 +25,6 @@
 [submodule "engine/service-core"]
 	path = engine/service-core
 	url = https://github.com/laquereric/service-core.git
+[submodule "container/service-3d"]
+	path = container/service-3d
+	url = https://github.com/laquereric/service-3d.git
