@@ -61,3 +61,6 @@
 [submodule "container/service-table"]
 	path = container/service-table
 	url = https://github.com/laquereric/service-table.git
+[submodule "engine/service-protege"]
+	path = engine/service-protege
+	url = https://github.com/laquereric/service-protege.git
