@@ -1,0 +1,113 @@
+<% content_for :brand do %>
+  <span class="text-lg font-semibold text-gray-900">LLM Memory</span>
+<% end %>
+
+<div class="flex justify-between items-center mb-6">
+  <div>
+    <h1 class="text-2xl font-bold text-gray-900">Memory Dashboard</h1>
+    <p class="mt-1 text-sm text-gray-500">Medallion pipeline: Bronze &rarr; Silver &rarr; Gold</p>
+  </div>
+</div>
+
+<%# Tier summary cards %>
+<div class="grid grid-cols-1 md:grid-cols-3 gap-4 mb-8">
+  <%= ds_card do %>
+    <div class="flex items-center justify-between mb-2">
+      <h2 class="text-sm font-semibold text-gray-700 uppercase tracking-wide">Bronze Facts</h2>
+      <%= ds_badge label: @bronze_count.to_s, color: :yellow %>
+    </div>
+    <p class="text-3xl font-bold text-yellow-700"><%= @bronze_count %></p>
+    <p class="text-xs text-gray-500 mt-1">Raw ingested facts</p>
+    <% @source_type_counts.each do |type, count| %>
+      <div class="flex justify-between text-xs text-gray-600 mt-1">
+        <span><%= type %></span>
+        <span><%= count %></span>
+      </div>
+    <% end %>
+  <% end %>
+
+  <%= ds_card do %>
+    <div class="flex items-center justify-between mb-2">
+      <h2 class="text-sm font-semibold text-gray-700 uppercase tracking-wide">Silver Facts</h2>
+      <%= ds_badge label: @silver_count.to_s, color: :gray %>
+    </div>
+    <p class="text-3xl font-bold text-gray-600"><%= @silver_count %></p>
+    <p class="text-xs text-gray-500 mt-1">Correlated &amp; normalized</p>
+  <% end %>
+
+  <%= ds_card do %>
+    <div class="flex items-center justify-between mb-2">
+      <h2 class="text-sm font-semibold text-gray-700 uppercase tracking-wide">Gold Insights</h2>
+      <%= ds_badge label: @gold_count.to_s, color: :green %>
+    </div>
+    <p class="text-3xl font-bold text-green-700"><%= @gold_count %></p>
+    <p class="text-xs text-gray-500 mt-1">
+      <%= @published_count %> published / <%= @unpublished_count %> pending
+    </p>
+    <% @insight_type_counts.each do |type, count| %>
+      <div class="flex justify-between text-xs text-gray-600 mt-1">
+        <span><%= type %></span>
+        <span><%= count %></span>
+      </div>
+    <% end %>
+  <% end %>
+</div>
+
+<%# Recent items per tier %>
+<div class="grid grid-cols-1 md:grid-cols-3 gap-4">
+  <%# Bronze %>
+  <div>
+    <h3 class="text-sm font-semibold text-gray-700 uppercase tracking-wide mb-3">Recent Bronze</h3>
+    <%= ds_data_table(
+      columns: [
+        { key: :source_type, label: "Source" },
+        { key: :ingested_at, label: "Ingested" }
+      ],
+      rows: @recent_bronze.map { |f|
+        {
+          source_type: ds_badge(label: f.source_type, color: :yellow),
+          ingested_at: f.ingested_at.strftime("%H:%M:%S")
+        }
+      }
+    ) %>
+  </div>
+
+  <%# Silver %>
+  <div>
+    <h3 class="text-sm font-semibold text-gray-700 uppercase tracking-wide mb-3">Recent Silver</h3>
+    <%= ds_data_table(
+      columns: [
+        { key: :entity_type, label: "Entity" },
+        { key: :processed_at, label: "Processed" }
+      ],
+      rows: @recent_silver.map { |f|
+        {
+          entity_type: ds_badge(label: f.entity_type, color: :gray),
+          processed_at: f.processed_at.strftime("%H:%M:%S")
+        }
+      }
+    ) %>
+  </div>
+
+  <%# Gold %>
+  <div>
+    <h3 class="text-sm font-semibold text-gray-700 uppercase tracking-wide mb-3">Recent Gold</h3>
+    <%= ds_data_table(
+      columns: [
+        { key: :insight_type, label: "Type" },
+        { key: :score, label: "Score" },
+        { key: :status, label: "Status" }
+      ],
+      rows: @recent_gold.map { |i|
+        {
+          insight_type: i.insight_type,
+          score: format("%.2f", i.score),
+          status: ds_badge(
+            label: i.lifecycle_published ? "Published" : "Pending",
+            color: i.lifecycle_published ? :green : :yellow
+          )
+        }
+      }
+    ) %>
+  </div>
+</div>
