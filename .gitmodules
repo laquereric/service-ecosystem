@@ -64,3 +64,6 @@
 [submodule "engine/service-protege"]
 	path = engine/service-protege
 	url = https://github.com/laquereric/service-protege.git
+[submodule "container/service-meaning"]
+	path = container/service-meaning
+	url = https://github.com/laquereric/service-meaning.git
