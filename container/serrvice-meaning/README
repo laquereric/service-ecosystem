@@ -1,0 +1,14 @@
+Meaning engine works with the 'nuts and bolts' of filer,lifecycle, planner to create and maintain BOTH machine readable SHACL representations of data shape, but also the domain-specific langiuage used in all ecosystems by all users. It uses a medallion pattern of meaning hierachy to allow a single 'bronze meaning' to propogate thru multiple differentiated 'silver' and 'gold' layers to reach many different 'gold' endpoints.
+
+Simple example:
+
+user ecosystem knows my name: (Eric) my Gender ('male') (held as an ASCII 20 char text filed)
+
+text ecosystem needs my name: (Eric) my Gender ('M') (held as an ASCII 1 chare text filed)'
+
+Meaning engine records:
+    - Source
+    - Destination
+    - transfermation (as ruby code)
+
+All linkages between lifecycle and other engines (planner, filer, etc.) use biological-IT (service-biological-it). Communication is by value through the MessageModerator, never by direct calls. Lifecycle exposes the standard 6-method Bindable interface: create, read, update, delete, list, execute.
