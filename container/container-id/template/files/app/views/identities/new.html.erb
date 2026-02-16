@@ -1,0 +1,31 @@
+<h1 style="margin-bottom: 24px;">Create a new identity</h1>
+
+<%= form_with(model: @identity, url: identities_path, method: :post) do |f| %>
+  <div class="form-group">
+    <%= f.label :context_user_id, "User ID" %>
+    <%= f.text_field :context_user_id, placeholder: "unique-user-id", autofocus: true %>
+  </div>
+
+  <div class="form-group">
+    <%= f.label :handle, "Handle" %>
+    <%= f.text_field :handle, placeholder: "myhandle" %>
+  </div>
+
+  <div class="form-group">
+    <%= f.label :display_name, "Display name (optional)" %>
+    <%= f.text_field :display_name, placeholder: "Jane Doe" %>
+  </div>
+
+  <div class="form-group">
+    <%= f.label :avatar_url, "Avatar URL (optional)" %>
+    <%= f.text_field :avatar_url, placeholder: "https://example.com/avatar.jpg" %>
+  </div>
+
+  <div class="form-group">
+    <%= f.label :bio, "Bio (optional)" %>
+    <%= f.textarea :bio, placeholder: "A short bio" %>
+  </div>
+
+  <%= f.submit "Create identity", class: "btn" %>
+  <a href="/" class="btn btn-outline" style="margin-left: 8px;">Cancel</a>
+<% end %>

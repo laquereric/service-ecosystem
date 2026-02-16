@@ -1,0 +1,58 @@
+<div class="page-header">
+  <h1><a href="/<%= @repository.name %>"><%= @repository.name %></a></h1>
+  <%= form_with(url: repository_delete_path(@repository.name), method: :delete, class: "inline") do %>
+    <button type="submit" class="btn btn-danger" onclick="return confirm('Delete this repository? This cannot be undone.')">Delete</button>
+  <% end %>
+</div>
+
+<% if @repository.description.present? %>
+  <p style="color: var(--text-muted); margin-bottom: 16px;"><%= @repository.description %></p>
+<% end %>
+
+<div class="clone-url">
+  git clone <%= request.base_url %>/<%= @repository.name %>.git
+</div>
+
+<div class="tab-nav">
+  <a href="/<%= @repository.name %>" class="<%= 'active' unless action_name == 'commits' %>">Code</a>
+  <a href="/<%= @repository.name %>/commits/HEAD" class="<%= 'active' if action_name == 'commits' %>">Commits</a>
+</div>
+
+<% if @path.present? %>
+  <div class="breadcrumb">
+    <a href="/<%= @repository.name %>"><%= @repository.name %></a>
+    <% parts = @path.split("/") %>
+    <% parts.each_with_index do |part, i| %>
+      / <% if i < parts.length - 1 %>
+        <a href="/<%= @repository.name %>/tree/<%= @ref %>/<%= parts[0..i].join("/") %>"><%= part %></a>
+      <% else %>
+        <%= part %>
+      <% end %>
+    <% end %>
+  </div>
+<% end %>
+
+<% if @repository.empty? %>
+  <div class="empty-state">
+    <p>This repository is empty.</p>
+    <p style="margin-top: 12px; font-size: 14px; color: var(--text-muted);">
+      Push an existing repository:
+    </p>
+    <div class="code-block" style="text-align: left; max-width: 500px; margin: 12px auto;">git remote add origin <%= request.base_url %>/<%= @repository.name %>.git
+git push -u origin main</div>
+  </div>
+<% else %>
+  <ul class="file-tree">
+    <% @entries.each do |entry| %>
+      <li>
+        <% if entry[:type] == :tree %>
+          <span class="icon">&#128193;</span>
+          <a href="/<%= @repository.name %>/tree/<%= @ref || 'HEAD' %>/<%= [@path, entry[:name]].compact.reject(&:blank?).join("/") %>"><%= entry[:name] %></a>
+        <% else %>
+          <span class="icon">&#128196;</span>
+          <a href="/<%= @repository.name %>/blob/<%= @ref || 'HEAD' %>/<%= [@path, entry[:name]].compact.reject(&:blank?).join("/") %>"><%= entry[:name] %></a>
+        <% end %>
+      </li>
+    <% end %>
+  </ul>
+<% end %>

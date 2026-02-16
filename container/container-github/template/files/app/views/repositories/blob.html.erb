@@ -1,0 +1,23 @@
+<div class="page-header">
+  <h1><a href="/<%= @repository.name %>"><%= @repository.name %></a></h1>
+</div>
+
+<div class="breadcrumb">
+  <a href="/<%= @repository.name %>"><%= @repository.name %></a>
+  <% parts = @path.split("/") %>
+  <% parts.each_with_index do |part, i| %>
+    / <% if i < parts.length - 1 %>
+      <a href="/<%= @repository.name %>/tree/<%= @ref %>/<%= parts[0..i].join("/") %>"><%= part %></a>
+    <% else %>
+      <strong><%= part %></strong>
+    <% end %>
+  <% end %>
+</div>
+
+<% if @binary %>
+  <div class="code-block" style="text-align: center; color: var(--text-muted);">
+    Binary file not shown.
+  </div>
+<% else %>
+  <div class="code-block"><%= ERB::Util.html_escape(@content) %></div>
+<% end %>

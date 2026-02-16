@@ -1,0 +1,26 @@
+<h1 style="margin-bottom: 24px;">Edit identity</h1>
+
+<%= form_with(model: @identity, url: identity_path(@identity), method: :patch) do |f| %>
+  <div class="form-group">
+    <%= f.label :handle, "Handle" %>
+    <%= f.text_field :handle %>
+  </div>
+
+  <div class="form-group">
+    <%= f.label :display_name, "Display name" %>
+    <%= f.text_field :display_name %>
+  </div>
+
+  <div class="form-group">
+    <%= f.label :avatar_url, "Avatar URL" %>
+    <%= f.text_field :avatar_url %>
+  </div>
+
+  <div class="form-group">
+    <%= f.label :bio, "Bio" %>
+    <%= f.textarea :bio %>
+  </div>
+
+  <%= f.submit "Update identity", class: "btn" %>
+  <a href="<%= identity_path(@identity) %>" class="btn btn-outline" style="margin-left: 8px;">Cancel</a>
+<% end %>

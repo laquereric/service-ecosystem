@@ -1,0 +1,10 @@
+<div class="page-header">
+  <h1>3D Visualization Dashboard</h1>
+  <a href="/3d" class="btn">Scene Gallery</a>
+</div>
+
+<div class="scene-card">
+  <h2>Embedded Scatter Plot</h2>
+  <p>This 3D scatter plot is embedded via ViewComponent. Visit the <a href="/3d">Scene Gallery</a> for standalone Inertia pages.</p>
+  <%= render Service3d::SceneComponent.new(scene: @scatter, height: "600px") %>
+</div>

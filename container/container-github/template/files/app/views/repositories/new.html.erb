@@ -1,0 +1,16 @@
+<h1 style="margin-bottom: 24px;">Create a new repository</h1>
+
+<%= form_with(model: @repository, url: repositories_path, method: :post) do |f| %>
+  <div class="form-group">
+    <%= f.label :name, "Repository name" %>
+    <%= f.text_field :name, placeholder: "my-project", autofocus: true %>
+  </div>
+
+  <div class="form-group">
+    <%= f.label :description, "Description (optional)" %>
+    <%= f.textarea :description, placeholder: "A short description of the repository" %>
+  </div>
+
+  <%= f.submit "Create repository", class: "btn" %>
+  <a href="/" class="btn btn-outline" style="margin-left: 8px;">Cancel</a>
+<% end %>

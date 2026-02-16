@@ -1,0 +1,49 @@
+#!/usr/bin/env bash
+set -e
+
+SCRIPT_DIR="$(cd "$(dirname "$0")" && pwd)"
+ENGINE_ROOT="$(cd "$SCRIPT_DIR/../.." && pwd)"
+QUICK=false
+
+for arg in "$@"; do
+  case "$arg" in
+    -q|--quick) QUICK=true ;;
+  esac
+done
+
+if [ "$QUICK" = true ] && [ -d "$ENGINE_ROOT/rails_app" ]; then
+  echo "==> SKIP $(basename "$ENGINE_ROOT") (rails_app exists, --quick)"
+  exit 0
+fi
+
+echo "==> Building host Rails app in rails_app/..."
+
+# Remove existing generated app
+if [ -d "$ENGINE_ROOT/rails_app" ]; then
+  echo "    Removing existing rails_app/..."
+  rm -rf "$ENGINE_ROOT/rails_app"
+fi
+
+# Generate the Rails app using the template
+cd "$ENGINE_ROOT"
+rails new rails_app \
+  --api \
+  --database=sqlite3 \
+  --skip-action-mailer \
+  --skip-active-storage \
+  --skip-action-mailbox \
+  --skip-action-text \
+  --skip-git \
+  -m template/template.rb
+
+# Mark generated files read-only to prevent accidental edits
+echo "    Marking rails_app/ read-only..."
+chmod -R a-w "$ENGINE_ROOT/rails_app"
+# Restore execute permission on bin/ scripts
+if [ -d "$ENGINE_ROOT/rails_app/bin" ]; then
+  chmod -R u+x "$ENGINE_ROOT/rails_app/bin"
+fi
+
+echo ""
+echo "==> Done! Host app created at rails_app/ (read-only)"
+echo "    cd rails_app && bin/setup"

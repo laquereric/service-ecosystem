@@ -1,0 +1,34 @@
+<div class="page-header">
+  <h1>Identities</h1>
+  <a href="/identities/new" class="btn">New identity</a>
+</div>
+
+<% if @identities.any? %>
+  <ul class="identity-list">
+    <% @identities.each do |identity| %>
+      <li>
+        <% if identity.avatar_url.present? %>
+          <img src="<%= identity.avatar_url %>" class="identity-avatar" alt="<%= identity.handle %>">
+        <% else %>
+          <div class="identity-avatar"></div>
+        <% end %>
+        <div class="identity-info">
+          <div class="identity-handle">
+            <a href="<%= identity_path(identity) %>">@<%= identity.handle %></a>
+            <% if identity.verified? %>
+              <span class="badge-verified">Verified</span>
+            <% end %>
+          </div>
+          <% if identity.display_name.present? %>
+            <div class="identity-name"><%= identity.display_name %></div>
+          <% end %>
+        </div>
+      </li>
+    <% end %>
+  </ul>
+<% else %>
+  <div class="empty-state">
+    <p>No identities yet.</p>
+    <p style="margin-top: 8px;"><a href="/identities/new" class="btn">Create your first identity</a></p>
+  </div>
+<% end %>

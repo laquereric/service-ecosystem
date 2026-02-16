@@ -1,0 +1,28 @@
+<div class="page-header">
+  <h1><a href="/<%= @repository.name %>"><%= @repository.name %></a></h1>
+</div>
+
+<div class="tab-nav">
+  <a href="/<%= @repository.name %>">Code</a>
+  <a href="/<%= @repository.name %>/commits/<%= @ref %>" class="active">Commits</a>
+</div>
+
+<% if @commits.any? %>
+  <ul class="commit-list">
+    <% @commits.each do |commit| %>
+      <li>
+        <div class="commit-msg"><%= commit.message.lines.first&.strip %></div>
+        <div class="commit-meta">
+          <%= commit.author[:name] %> committed
+          <%= time_ago_in_words(commit.author[:time]) %> ago
+          &middot;
+          <span class="commit-sha"><%= commit.oid[0..6] %></span>
+        </div>
+      </li>
+    <% end %>
+  </ul>
+<% else %>
+  <div class="empty-state">
+    <p>No commits yet.</p>
+  </div>
+<% end %>

@@ -1,0 +1,8 @@
+<div class="page-header">
+  <h1>PlantUML Diagram Demo</h1>
+</div>
+
+<div class="diagram-card">
+  <h2>Sequence Diagram — Request Flow</h2>
+  <%= render ServicePuml::DiagramComponent.new(puml_content: @puml_content, mode: :server) %>
+</div>

@@ -1,0 +1,19 @@
+<div class="page-header">
+  <h1>Mermaid Diagrams</h1>
+</div>
+
+<p style="color: var(--text-muted); margin-bottom: 24px;">
+  service-mermaid provides a Ruby DSL for building Mermaid diagrams with server-side SVG rendering.
+</p>
+
+<div class="card">
+  <h2>Flowchart</h2>
+  <p>A sample flowchart built with the <code>build_flowchart</code> controller helper, demonstrating nodes, links, and shapes.</p>
+  <%= link_to "View Flowchart", diagrams_flowchart_path, class: "btn" %>
+</div>
+
+<div class="card">
+  <h2>Sequence Diagram</h2>
+  <p>A sample sequence diagram built with the <code>build_sequence_diagram</code> helper, showing the request lifecycle.</p>
+  <%= link_to "View Sequence Diagram", diagrams_sequence_path, class: "btn" %>
+</div>

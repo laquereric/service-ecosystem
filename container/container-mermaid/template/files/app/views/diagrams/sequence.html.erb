@@ -1,0 +1,17 @@
+<div class="nav-links">
+  <%= link_to "&larr; Back to Diagrams".html_safe, diagrams_path %>
+</div>
+
+<div class="page-header">
+  <h1>Sequence Diagram</h1>
+</div>
+
+<% if @svg %>
+  <div class="diagram-container">
+    <%= @svg.html_safe %>
+  </div>
+<% elsif @error %>
+  <div class="error">
+    <strong>Rendering failed:</strong> <%= @error %>
+  </div>
+<% end %>

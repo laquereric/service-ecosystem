@@ -1,0 +1,45 @@
+<div class="page-header">
+  <h1>Identity</h1>
+  <a href="<%= edit_identity_path(@identity) %>" class="btn btn-outline">Edit</a>
+</div>
+
+<div class="profile-header">
+  <% if @identity.avatar_url.present? %>
+    <img src="<%= @identity.avatar_url %>" class="profile-avatar" alt="<%= @identity.handle %>">
+  <% else %>
+    <div class="profile-avatar"></div>
+  <% end %>
+  <div class="profile-details">
+    <div class="profile-handle">
+      @<%= @identity.handle %>
+      <% if @identity.verified? %>
+        <span class="badge-verified">Verified</span>
+      <% end %>
+    </div>
+    <% if @identity.display_name.present? %>
+      <div class="profile-name"><%= @identity.display_name %></div>
+    <% end %>
+    <% if @identity.bio.present? %>
+      <div class="profile-bio"><%= @identity.bio %></div>
+    <% end %>
+  </div>
+</div>
+
+<% if @links.any? %>
+  <h2 style="font-size: 18px; margin-bottom: 12px;">Links</h2>
+  <ul class="link-list">
+    <% @links.each do |link| %>
+      <li>
+        <div class="link-rel"><%= link.rel %></div>
+        <% if link.title.present? %>
+          <div class="link-title"><%= link.title %></div>
+        <% end %>
+        <a href="<%= link.href %>"><%= link.href %></a>
+      </li>
+    <% end %>
+  </ul>
+<% end %>
+
+<div style="margin-top: 24px; padding-top: 16px; border-top: 1px solid var(--border); font-size: 13px; color: var(--text-muted);">
+  WebFinger: <code>acct:<%= @identity.handle %>@magentic.market</code>
+</div>

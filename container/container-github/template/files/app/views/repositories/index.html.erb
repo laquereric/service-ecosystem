@@ -1,0 +1,24 @@
+<div class="page-header">
+  <h1>Repositories</h1>
+  <a href="/repositories/new" class="btn">New repository</a>
+</div>
+
+<% if @repositories.any? %>
+  <ul class="repo-list">
+    <% @repositories.each do |repo| %>
+      <li>
+        <div class="repo-name">
+          <a href="/<%= repo.name %>"><%= repo.name %></a>
+        </div>
+        <% if repo.description.present? %>
+          <div class="repo-desc"><%= repo.description %></div>
+        <% end %>
+      </li>
+    <% end %>
+  </ul>
+<% else %>
+  <div class="empty-state">
+    <p>No repositories yet.</p>
+    <p style="margin-top: 8px;"><a href="/repositories/new" class="btn">Create your first repository</a></p>
+  </div>
+<% end %>

@@ -7,11 +7,11 @@
 [submodule "service-ecosystem-manager"]
 	path = service-ecosystem-manager
 	url = https://github.com/laquereric/service-ecosystem-manager.git
-[submodule "container/service-mermaid"]
-	path = container/service-mermaid
+[submodule "engine/engine-mermaid"]
+	path = engine/engine-mermaid
 	url = https://github.com/laquereric/service-mermaid.git
-[submodule "container/service-puml"]
-	path = container/service-puml
+[submodule "engine/engine-puml"]
+	path = engine/engine-puml
 	url = https://github.com/laquereric/service-puml.git
 [submodule "engine/engine-switch"]
 	path = engine/engine-switch
@@ -19,14 +19,14 @@
 [submodule "engine/service-core"]
 	path = engine/service-core
 	url = https://github.com/laquereric/service-core.git
-[submodule "container/service-3d"]
-	path = container/service-3d
+[submodule "engine/engine-3d"]
+	path = engine/engine-3d
 	url = https://github.com/laquereric/service-3d.git
-[submodule "container/service-id"]
-	path = container/service-id
+[submodule "engine/engine-id"]
+	path = engine/engine-id
 	url = https://github.com/laquereric/service-id.git
-[submodule "container/service-rubygems"]
-	path = container/service-rubygems
+[submodule "engine/engine-rubygems"]
+	path = engine/engine-rubygems
 	url = https://github.com/laquereric/service-rubygems.git
 [submodule "engine/rayswarm-plugin-wasm3"]
 	path = engine/rayswarm-plugin-wasm3
@@ -49,8 +49,8 @@
 [submodule "library/service-protege"]
 	path = library/service-protege
 	url = https://github.com/laquereric/service-protege.git
-[submodule "container/service-github"]
-	path = container/service-github
+[submodule "engine/engine-github"]
+	path = engine/engine-github
 	url = https://github.com/laquereric/service-github.git
 [submodule "library/service-all-engines"]
 	path = library/service-all-engines
@@ -58,8 +58,8 @@
 [submodule "library/service-all-libraries"]
 	path = library/service-all-libraries
 	url = https://github.com/laquereric/service-all-libraries.git
-[submodule "container/service-table"]
-	path = container/service-table
+[submodule "engine/engine-table"]
+	path = engine/engine-table
 	url = https://github.com/laquereric/service-table.git
 [submodule "engine/service-protege"]
 	path = engine/service-protege
