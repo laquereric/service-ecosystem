@@ -13,8 +13,8 @@
 [submodule "container/service-puml"]
 	path = container/service-puml
 	url = https://github.com/laquereric/service-puml.git
-[submodule "container/service-switch"]
-	path = container/service-switch
+[submodule "engine/engine-switch"]
+	path = engine/engine-switch
 	url = https://github.com/laquereric/service-switch.git
 [submodule "engine/service-core"]
 	path = engine/service-core
