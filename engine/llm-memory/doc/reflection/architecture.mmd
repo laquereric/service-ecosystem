@@ -1,0 +1,20 @@
+graph TD
+
+  subgraph LlmMemory["llm-memory"]
+    subgraph Bronze["Bronze"]
+      BronzeFact["BronzeFact"]
+    end
+    subgraph Gold["Gold"]
+      GoldInsight["GoldInsight"]
+    end
+    subgraph Silver["Silver"]
+      SilverFact["SilverFact"]
+    end
+  end
+
+  rails["rails"]:::dep
+
+  view_component["view_component"]:::dep
+  LlmMemory --> rails
+
+  classDef dep fill:#f5f5f5,stroke:#999,stroke-dasharray:5,5

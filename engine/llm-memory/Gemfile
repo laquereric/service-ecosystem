@@ -7,3 +7,6 @@ gemspec
 
 gem "irb"
 gem "rake", "~> 13.0"
+
+# Design system (ViewComponent-based UI components and Tailwind tokens)
+gem "rayswarm-design-system", path: "../../../../domain/horizontal/engine/rayswarm-design-system"

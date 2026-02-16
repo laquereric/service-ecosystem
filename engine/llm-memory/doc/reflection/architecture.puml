@@ -1,0 +1,34 @@
+@startuml architecture
+!theme plain
+
+skinparam component {
+  BackgroundColor<<Engine>> #E1F5FE
+  BorderColor<<Engine>> #0288D1
+  BackgroundColor<<Gem>> #FFF3E0
+  BorderColor<<Gem>> #F57C00
+  BackgroundColor<<Model>> #E8F5E9
+  BorderColor<<Model>> #388E3C
+}
+
+title llm-memory\nLLM Memory Rails Engine
+
+package "llm-memory" <<Engine>> {
+  package "Bronze" {
+    component "BronzeFact" as BronzeFact
+  }
+  package "Gold" {
+    component "GoldInsight" as GoldInsight
+  }
+  package "Silver" {
+    component "SilverFact" as SilverFact
+  }
+}
+
+component "rails" as Rails #F5F5F5
+
+component "view_component" as ViewComponent #F5F5F5
+
+LlmMemory ..> Rails : depends on
+
+caption LLM Memory Rails Engine
+@enduml
