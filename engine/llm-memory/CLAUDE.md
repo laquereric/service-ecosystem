@@ -4,7 +4,7 @@
 
 Rails engine that collects facts from llm-state, Rails log files, OpenTelemetry event streams, and other sources. Applies medallion processing (bronze/silver/gold) to produce refined inputs for engine/lifecycle.
 
-Encapsulated by `structure/service-ecosystem/container/service-llm/`.
+Encapsulated by `top/service/container/service-llm/`.
 
 ## Table Prefix
 
